@@ -1,0 +1,34 @@
+<head>
+  <title>Meditation-thought recorder</title>
+</head>
+
+<body>
+  {{> hello}}
+</body>
+
+<template name="hello">
+  <div id="hello">
+    <h1>Track returns from thought during meditation</h1>
+    <ol>
+      <li>Enter a duration for your session of meditation</li> 
+      <li>Click the button to start your session (a gong starts and
+      ends the session)</li>
+      <li>Click anywhere on the page during your session, to indicate
+        that you just recovered from a stray thought.</li>
+    </ol>
+    <p>
+      This app plots the durations between thinking-recoveries
+      for each session. Marvel at your progress over time as you
+      gradually increase your median in-session "clear head" duration.</p>  
+    <form id="newSession" class="form-inline">
+      Duration: <input type="number" min="5" step="5" 
+                       required="required"
+                       id="minutes" class="input-mini" 
+                       placeholder="10"> minutes
+      <input type="submit" class="btn" value="Start" />
+    </form>
+    {{#constant}}
+      <div id="recoveriesPlot"></div>
+    {{/constant}}
+  </div>
+</template>
